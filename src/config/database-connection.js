@@ -37,6 +37,7 @@ function databaseInserts() {
         await sequelize.sync({ force: true }); 
 
         const uf1 = await Uf.create({ sigla: "ES", nome: "Espírito Santo" });
+        
 
     })();
 }
