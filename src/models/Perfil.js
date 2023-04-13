@@ -34,7 +34,7 @@ class Perfil extends Model {
     }
 
     static associate(models) {
-
+        
     }
 
 }

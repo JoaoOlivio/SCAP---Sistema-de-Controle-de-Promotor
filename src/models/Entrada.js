@@ -49,7 +49,7 @@ class Entrada extends Model {
   }
 
   static associate(models) {
-   
+    this.belongsTo(models.Usuario, { foreignKey: {name: 'usuarioId' , allowNull: false, validate: {notNull: {msg: 'Usuário não pode ser nulo!'}}}, as: 'usuario' });
   }
   
 }

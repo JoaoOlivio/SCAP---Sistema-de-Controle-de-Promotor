@@ -32,7 +32,8 @@ class Usuario extends Model {
   }
 
   static associate(models) {
-   
+    this.belongsTo(models.Loja, { foreignKey: {name: 'lojaId' , allowNull: false, validate: {notNull: {msg: 'Loja deve ser selecionada!'}}}, as: 'loja' });
+    this.belongsTo(models.Perfil, { foreignKey: {name: 'perfilId' , allowNull: false, validate: {notNull: {msg: 'Perfil deve ser selecionado!'}}}, as: 'perfil' });
   }
   
 }

@@ -49,7 +49,8 @@ class Saida extends Model {
   }
 
   static associate(models) {
-   
+    this.belongsTo(models.Usuario, { foreignKey: {name: 'usuarioId' , allowNull: false, validate: {notNull: {msg: 'Usuário não pode ser nulo!'}}}, as: 'usuario' });
+    this.belongsTo(models.Portao, { foreignKey: {name: 'portaoId' , allowNull: false, validate: {notNull: {msg: 'O portão deve ser selecionado!'}}}, as: 'portao' });
   }
   
 }
