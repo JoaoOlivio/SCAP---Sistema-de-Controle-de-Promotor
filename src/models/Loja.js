@@ -1,3 +1,4 @@
+// Diogo
 import { Model, DataTypes } from 'sequelize';
 
 class Loja extends Model {

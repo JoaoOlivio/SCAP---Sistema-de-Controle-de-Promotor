@@ -1,3 +1,4 @@
+// joao olivio
 import { Model, DataTypes } from 'sequelize';
 
 class Avaliacao extends Model {
