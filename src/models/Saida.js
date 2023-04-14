@@ -9,6 +9,7 @@ class Saida extends Model {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
+              notNull: {msg: "Crachá não pode ser nulo"},
               notEmpty: { msg: "Crachá é obrigatório" },
               len: { args: [2, 50], msg: "Crachá deve ter entre 2 e 50 caracteres" }
             }
@@ -17,14 +18,16 @@ class Saida extends Model {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
+              notNull: {msg: "Nome não pode ser nulo"},
               notEmpty: { msg: "Nome é obrigatório" },
               len: { args: [3, 50], msg: "Nome deve ter entre 3 e 50 caracteres" }
             }
           },
-          CPF: {
+          cpf: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
+              notNull: {msg: "CPF não pode ser nulo"},
               notEmpty: { msg: "CPF é obrigatório" },
               is: {args: ["[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}"], msg: "O CPF deve seguir o padrão NNN.NNN.NNN-NN!" },
             }
@@ -34,6 +37,7 @@ class Saida extends Model {
             allowNull: false,
             defaultValue: DataTypes.NOW,
             validate: {
+              notNull: {msg: "Horário não pode ser nulo"},
               notEmpty: { msg: "Horário é obrigatório" }
             }
           },
@@ -42,6 +46,7 @@ class Saida extends Model {
             allowNull: false,
             defaultValue: DataTypes.NOW,
             validate: {
+              notNull: {msg: "Data não pode ser nulo"},
               notEmpty: { msg: "Data é obrigatória" },
               isDate: { msg: "Data deve ser uma data válida" }
             }

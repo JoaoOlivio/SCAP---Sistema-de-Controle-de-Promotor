@@ -46,7 +46,7 @@ class Entrada extends Model {
             defaultValue: DataTypes.NOW,
             validate: {
               notEmpty: { msg: "Data é obrigatória" },
-              //is: {args: ["[0-9]{4}\-[0-9]{2}\-[0-9]{2}"], msg: "A Data deve seguir o padrão yyyy-MM-dd!" },
+              is: {args: ["[0-9]{4}\-[0-9]{2}\-[0-9]{2}"], msg: "A Data deve seguir o padrão yyyy-MM-dd!" },
               isDate: { msg: "Data deve ser uma data válida" }
             }
           }
@@ -55,7 +55,7 @@ class Entrada extends Model {
 
   static associate(models) {
     this.belongsTo(models.usuario, { foreignKey: {name: 'usuarioId' , allowNull: false, validate: {notNull: {msg: 'Usuário não pode ser nulo!'}}}, as: 'usuario' });
-    this.belongsTo(models.promotor_fornecedor, { foreignKey: {name: 'promotor_fornecedorId' , allowNull: false, validate: {notNull: {msg: 'promotor_fornecedor não pode ser nulo!'}}}, as: 'promotor_fornecedor' });
+    this.belongsTo(models.promotor_fornecedor, { foreignKey: {name: 'promotorFornecedorId' , allowNull: false, validate: {notNull: {msg: 'promotor_fornecedor não pode ser nulo!'}}}, as: 'promotor_fornecedor' });
 
   }
   

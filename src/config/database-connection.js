@@ -117,35 +117,137 @@ function databaseInserts() {
         const produto2 = await Produto.create({ descricao: "Produto 2", precoCusto: 15.0, precoVenda: 40.0, fornecedorId: fornecedor1.id, });
         const produto3 = await Produto.create({ descricao: "Produto 3", precoCusto: 20.0, precoVenda: 60.0, fornecedorId: fornecedor1.id, });
         const produto4 = await Produto.create({ descricao: "Produto 4", precoCusto: 25.0, precoVenda: 80.0, fornecedorId: fornecedor1.id, });
+        
 
-        // const entrada1 = await Entrada.create({
-        //     nome: "Entrada  1",
-        //     cracha: "CR111",
-        //     cpf: "111.111.111-11",
-        //     horario: "08:00",
-        //     data: "2023-04-13",
-        //     usuarioId: usuario1.id, // ID do usuário criado anteriormente
-        //     promotorFornecedorId: promotorFornecedor1.id, // ID da relação Promotor_Fornecedor criada anteriormente
-        //   });
+        const promotor_fornecedor1 = await PromotorFornecedor.create({ promotorId: 1, fornecedorId: 1});
+        const promotor_fornecedor2 = await PromotorFornecedor.create({ promotorId: 2, fornecedorId: 1});
+        const promotor_fornecedor3 = await PromotorFornecedor.create({ promotorId: 1, fornecedorId: 3});
+        const promotor_fornecedor4 = await PromotorFornecedor.create({ promotorId: 3, fornecedorId: 3});
 
-        //   const avaliacao1 = await Avaliacao.create({
-        //     cracha: "CR111",
-        //     nota: 4.5,
-        //     servicoConcluido: true,
-        //     observacao: "Bom trabalho.",
-        //     entradaId: entrada1.id, // ID da entrada criada anteriormente
-        //     destaqueId: 1,
-        //   });
+        const entrada1 = await Entrada.create({
+            nome: "Entrada  1",
+            cracha: "CR111",
+            cpf: "111.111.111-11",
+            horario: "08:00",
+            data: "2023-04-13",
+            usuarioId: usuario1.id, // ID do usuário criado anteriormente
+            promotorFornecedorId: 1 // ID da relação Promotor_Fornecedor criada anteriormente
+          });
+        
+        const entrada2 = await Entrada.create({
+            nome: "Entrada  2",
+            cracha: "CR112",
+            cpf: "111.111.111-12",
+            horario: "09:00",
+            data: "2023-04-14",
+            usuarioId: usuario2.id, // ID do usuário criado anteriormente
+            promotorFornecedorId: 2 // ID da relação Promotor_Fornecedor criada anteriormente
+        });
 
-        //   const saida1 = await Saida.create({
-        //     nome: "Saida 1",
-        //     cracha: "CR111",
-        //     cpf: "111.111.111-11",
-        //     horario: "18:00",
-        //     data: "2023-04-13",
-        //     avaliacaoId: avaliacao1.id, //  ID da avaliação criada anteriormente
-        //     usuarioId: usuario1.id, // ID do usuário criado anteriormente
-        //   });
+        const entrada3 = await Entrada.create({
+            nome: "Entrada  3",
+            cracha: "CR113",
+            cpf: "111.111.111-13",
+            horario: "10:00",
+            data: "2023-04-15",
+            usuarioId: usuario3.id, // ID do usuário criado anteriormente
+            promotorFornecedorId: 3 // ID da relação Promotor_Fornecedor criada anteriormente
+        });
+
+        const entrada4 = await Entrada.create({
+            nome: "Entrada  4",
+            cracha: "CR114",
+            cpf: "111.111.111-14",
+            horario: "11:00",
+            data: "2023-04-16",
+            usuarioId: usuario4.id, // ID do usuário criado anteriormente
+            promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
+        });
+          
+
+        const avaliacao1 = await Avaliacao.create({
+            usuarioId: 1,
+            cracha: "CR111",
+            nota: 4.5,
+            servicoConcluido: true,
+            observacao: "Bom trabalho.",
+            entradaId: entrada1.id, // ID da entrada criada anteriormente
+            destaqueId: 1,
+        });
+
+        const avaliacao2 = await Avaliacao.create({
+            usuarioId: 2,
+            cracha: "CR112",
+            nota: 4.6,
+            servicoConcluido: false,
+            observacao: "Razoável",
+            entradaId: entrada2.id, // ID da entrada criada anteriormente
+            destaqueId: 2,
+        });
+
+        const avaliacao3 = await Avaliacao.create({
+            usuarioId: 3,
+            cracha: "CR113",
+            nota: 4.4,
+            servicoConcluido: true,
+            observacao: "Ruim",
+            entradaId: entrada3.id, // ID da entrada criada anteriormente
+            destaqueId: 3,
+        });
+
+        const avaliacao4 = await Avaliacao.create({
+            usuarioId: 4,
+            cracha: "CR114",
+            nota: 4.8,
+            servicoConcluido: true,
+            observacao: "Excelente",
+            entradaId: entrada4.id, // ID da entrada criada anteriormente
+            destaqueId: 4,
+        });
+
+        const saida1 = await Saida.create({
+            portaoId: 1,
+            nome: "Saida 1",
+            cracha: "CR111",
+            cpf: "111.111.111-11",
+            horario: "18:00",
+            data: "2023-04-13",
+            avaliacaoId: avaliacao1.id, //  ID da avaliação criada anteriormente
+            usuarioId: usuario1.id, // ID do usuário criado anteriormente
+        });
+        
+        const saida2 = await Saida.create({
+            portaoId: 2,
+            nome: "Saida 2",
+            cracha: "CR112",
+            cpf: "111.111.111-12",
+            horario: "19:00",
+            data: "2023-04-14",
+            avaliacaoId: avaliacao2.id, //  ID da avaliação criada anteriormente
+            usuarioId: usuario2.id, // ID do usuário criado anteriormente
+        });
+
+        const saida3 = await Saida.create({
+            portaoId: 3,
+            nome: "Saida 3",
+            cracha: "CR113",
+            cpf: "111.111.111-13",
+            horario: "20:00",
+            data: "2023-04-15",
+            avaliacaoId: avaliacao3.id, //  ID da avaliação criada anteriormente
+            usuarioId: usuario3.id, // ID do usuário criado anteriormente
+        });
+
+        const saida4 = await Saida.create({
+            portaoId: 4,
+            nome: "Saida 4",
+            cracha: "CR114",
+            cpf: "111.111.111-14",
+            horario: "21:00",
+            data: "2023-04-16",
+            avaliacaoId: avaliacao2.id, //  ID da avaliação criada anteriormente
+            usuarioId: usuario2.id, // ID do usuário criado anteriormente
+        });
 
 
     })();
