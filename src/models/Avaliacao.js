@@ -10,13 +10,14 @@ class Avaliacao extends Model {
             allowNull: false,
             validate: {
               notEmpty: { msg: "Crachá é obrigatório" },
+              notNull: { msg: "Crachá não pode ser nulo." },
               len: { args: [2, 50], msg: "Crachá deve ter entre 2 e 50 caracteres" }
             }
           },
-          ServicoConcluido: {
+          servicoConcluido: {
             type: DataTypes.BOOLEAN,
             validate: {
-              notEmpty: { msg: "Serviço concluído é obrigatório" }
+              notEmpty: { msg: "Serviço concluído é obrigatório" },
             }
           },
           nota: {
@@ -24,6 +25,7 @@ class Avaliacao extends Model {
             allowNull: false,
             validate: {
               notEmpty: { msg: "Nota é obrigatória" },
+              notNull: { msg: "Nota não pode ser nulo." },
               isFloat: { msg: "Nota deve ser um número decimal" }
             }
           },
@@ -32,6 +34,7 @@ class Avaliacao extends Model {
             allowNull: false,
             validate: {
               notEmpty: { msg: "Observação é obrigatória" },
+              notNull: { msg: "Observação não pode ser nulo." },
               len: { args: [2, 500], msg: "Observação deve ter entre 2 e 300 caracteres" }
             }
           }

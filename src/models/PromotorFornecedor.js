@@ -1,3 +1,4 @@
+//Gabriel
 import { Model, DataTypes } from 'sequelize';
 import { Promotor } from "./Promotor.js";
 import { Fornecedor } from "./Fornecedor.js";
@@ -26,7 +27,7 @@ class PromotorFornecedor extends Model {
     static associate(models) {
         this.removeAttribute('id');
         this.belongsTo(models.promotor, { foreignKey: { primaryKey: true, name: 'promotorId' , allowNull: false, validate: {notNull: {msg: 'Promotor não pode ser nulo!'}}}, as: 'promotor' });
-        this.belongsTo(models.fornecedor, { foreignKey: { primaryKey: true,name: 'fornecedorId' , allowNull: false, validate: {notNull: {msg: 'Fornecedor não pode ser nulo!'}}}, as: 'fornecedor' });
+        this.belongsTo(models.fornecedor, { foreignKey: { primaryKey: true, name: 'fornecedorId' , allowNull: false, validate: {notNull: {msg: 'Fornecedor não pode ser nulo!'}}}, as: 'fornecedor' });
     }
 
 }

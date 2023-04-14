@@ -1,3 +1,4 @@
+//Gabriel
 import { Model, DataTypes } from 'sequelize';
 
 class Fornecedor extends Model {
@@ -20,10 +21,9 @@ class Fornecedor extends Model {
                   len: { args: [3, 50], msg: "Razão social deve ter entre 3 e 50 caracteres" }
                 }
               },
-              CNPJ: {
+              cnpj: {
                 type: DataTypes.STRING,
                 allowNull: false,
-                unique: true,
                 validate: {
                   notEmpty: { msg: "CNPJ é obrigatório" },
                   is: {args: ["[0-9]{2}\.[0-9]{3}\.[0-9]{3}\/[0-9]{4}\-[0-9]{2}"], msg: "O CPF deve seguir o padrão NN.NNN.NNN/NNNN-NN!" },

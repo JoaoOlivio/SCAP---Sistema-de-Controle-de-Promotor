@@ -1,3 +1,4 @@
+//Gabriel
 import { Model, DataTypes } from 'sequelize';
 
 class Promotor extends Model {
@@ -9,7 +10,8 @@ class Promotor extends Model {
                 allowNull: false,
                 validate: {
                   notEmpty: { msg: "Nome é obrigatório" },
-                  len: { args: [3, 50], msg: "Nome deve ter entre 3 e 50 caracteres" }
+                  notNull: { msg: "Nome é obrigatório" },
+                  len: { args: [3, 100], msg: "Nome deve ter entre 3 e 50 caracteres" }
                 }
               },
               razaoSocial: {
@@ -17,14 +19,15 @@ class Promotor extends Model {
                 allowNull: false,
                 validate: {
                   notEmpty: { msg: "Razão social é obrigatória" },
-                  len: { args: [3, 50], msg: "Razão social deve ter entre 3 e 50 caracteres" }
+                  len: { args: [3, 100], msg: "Razão social deve ter entre 3 e 50 caracteres" }
                 }
               },
-              CPF: {
+              cpf: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {
                   notEmpty: { msg: "CPF é obrigatório" },
+                  notNull: { msg: "CPF não pode ser Nulo." },
                   is: {args: ["[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}"], msg: "O CPF deve seguir o padrão NNN.NNN.NNN-NN!" },
                 }
               },
@@ -65,7 +68,7 @@ class Promotor extends Model {
     }
 
     static associate(models) {
-      this.belongsToMany(models.fornecedor, {as: 'fornecedor', through: 'promotor_fornecedor', onDelete: 'CASCADE', onUpdate: 'CASCADE'});
+      this.belongsToMany(models.fornecedor, {as: 'fornecedores', through: 'promotor_fornecedor', onDelete: 'CASCADE', onUpdate: 'CASCADE'});
     }
 
 }

@@ -14,7 +14,7 @@ class Loja extends Model {
                     len: { args: [3, 50], msg: "Nome deve ter entre 3 e 50 caracteres" }
                 }
             },
-            CNPJ: {
+            cnpj: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 unique: true,

@@ -1,3 +1,4 @@
+//João Olívio
 import { Model, DataTypes } from 'sequelize';
 
 class Produto extends Model {
@@ -27,7 +28,7 @@ class Produto extends Model {
                 allowNull: false,
                 validate: {
                   notEmpty: { msg: "Descrição é obrigatória" },
-                  len: { args: [10, 200], msg: "Descrição deve ter entre 10 e 200 caracteres" }
+                  min: { args: [2, 200], msg: "Descrição deve ter entre 10 e 200 caracteres" }
                 }
               }
         }, { sequelize, modelName: 'produto', tableName: 'produtos' })
