@@ -46,7 +46,7 @@ class Loja extends Model {
     }
 
     static associate(models) {
-
+        this.hasMany(models.portao, {as: 'portao', onDelete: 'CASCADE', onUpdate: 'CASCADE'});
     }
 
 }

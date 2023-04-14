@@ -1,3 +1,4 @@
+// João Olivio
 import { Model, DataTypes } from 'sequelize';
 
 class Destaque extends Model {
@@ -9,6 +10,7 @@ class Destaque extends Model {
         allowNull: false,
         validate: {
           notEmpty: { msg: "Nome é obrigatório" },
+          notNull: { msg: "Nome não pode ser null!" },
           len: { args: [3, 50], msg: "Nome deve ter entre 3 e 50 caracteres" }
         }
       },

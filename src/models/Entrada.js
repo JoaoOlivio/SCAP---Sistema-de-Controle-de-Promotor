@@ -51,6 +51,8 @@ class Entrada extends Model {
 
   static associate(models) {
     this.belongsTo(models.usuario, { foreignKey: {name: 'usuarioId' , allowNull: false, validate: {notNull: {msg: 'Usuário não pode ser nulo!'}}}, as: 'usuario' });
+    this.belongsTo(models.promotor_fornecedor, { foreignKey: {name: 'promotor_fornecedorId' , allowNull: false, validate: {notNull: {msg: 'promotor_fornecedor não pode ser nulo!'}}}, as: 'promotor_fornecedor' });
+
   }
   
 }

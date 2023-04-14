@@ -16,7 +16,7 @@ class Portao extends Model {
   }
 
   static associate(models) {
-   
+    this.belongsTo(models.loja, { as: 'loja', foreignKey: {name: 'lojaId', allowNull: false, validate: {notNull: {msg: 'A loja deve ser preenchida!'}}}});
   }
   
 }

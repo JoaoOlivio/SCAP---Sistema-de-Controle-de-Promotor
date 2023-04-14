@@ -49,7 +49,8 @@ class Promotor extends Model {
                 allowNull: false,
                 validate: {
                   notEmpty: { msg: "Data de nascimento é obrigatória" },
-                  isDate: { msg: "Data inválida" }
+                  isDate: { msg: "Nascimento do Promotor deve ser preenchido!" },
+                  is: {args: ["[0-9]{4}\-[0-9]{2}\-[0-9]{2}"], msg: "Nascimento do Promotor deve seguir o padrão yyyy-MM-dd!" }
                 }
               },
               telefone: {
@@ -64,7 +65,7 @@ class Promotor extends Model {
     }
 
     static associate(models) {
-
+      this.belongsToMany(models.fornecedor, {as: 'fornecedor', through: 'promotor_fornecedor', onDelete: 'CASCADE', onUpdate: 'CASCADE'});
     }
 
 }
