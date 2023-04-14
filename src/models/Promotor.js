@@ -57,7 +57,7 @@ class Promotor extends Model {
                 allowNull: false,
                 validate: {
                   notEmpty: { msg: "Telefone é obrigatório" },
-                  is: { args: [/^(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})$/], msg: "Telefone inválido" }
+                  is: {args: /^\([0-9]{2}\) [0-9]?[0-9]{4}-[0-9]{4}/, msg: "Telefone deve seguir o padrão (NN) NNNNN-NNNN" }
                 }
               }
         }, { sequelize, modelName: 'promotor', tableName: 'promotores' })

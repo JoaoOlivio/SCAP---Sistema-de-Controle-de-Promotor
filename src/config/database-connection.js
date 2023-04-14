@@ -64,7 +64,7 @@ function databaseInserts() {
         });
 
         const promotor1 = await Promotor.create({
-            nome: "Promotor Exemplo",
+            nome: "Promotor 1",
             email: "promotorexemplo@email.com",
             telefone: "(11) 98765-4321",
             cpf: "000.000.000-00",
@@ -73,7 +73,7 @@ function databaseInserts() {
         });
 
         const fornecedor1 = await Fornecedor.create({
-            nomeFantasia: "Fornecedor Exemplo",
+            nomeFantasia: "Fornecedor 1",
             razaoSocial: "Fornecedor Exemplo Ltda",
             email: "fornecedorexemplo@email.com",
             telefone: "(11) 12345-6789",

@@ -34,7 +34,7 @@ class Produto extends Model {
     }
 
     static associate(models) {
-      this.belongsTo(models.Usuario, { foreignKey: {name: 'fornecedorId' , allowNull: false, validate: {notNull: {msg: 'Fornecedor não pode ser nulo!'}}}, as: 'fornecedor' });
+      this.belongsTo(models.fornecedor, { foreignKey: {name: 'fornecedorId' , allowNull: false, validate: {notNull: {msg: 'Fornecedor não pode ser nulo!'}}}, as: 'fornecedor' });
     }
 
 }

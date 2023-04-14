@@ -38,8 +38,8 @@ class Avaliacao extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Usuario, { foreignKey: {name: 'usuarioId' , allowNull: false, validate: {notNull: {msg: 'Usuário não pode ser nulo!'}}}, as: 'usuario' });
-    this.belongsTo(models.Destaque, { foreignKey: {name: 'destaqueId' , allowNull: false, validate: {notNull: {msg: 'Destaque não pode ser nulo!'}}}, as: 'destaque' });
+    this.belongsTo(models.usuario, { foreignKey: {name: 'usuarioId' , allowNull: false, validate: {notNull: {msg: 'Usuário não pode ser nulo!'}}}, as: 'usuario' });
+    this.belongsTo(models.destaque, { foreignKey: {name: 'destaqueId' , allowNull: false, validate: {notNull: {msg: 'Destaque não pode ser nulo!'}}}, as: 'destaque' });
   }
   
 }

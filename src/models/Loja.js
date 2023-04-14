@@ -20,7 +20,7 @@ class Loja extends Model {
                 validate: {
                     notNull: { msg: "O CNPJ não pode ser nulo!" },
                     notEmpty: { msg: "CNPJ é obrigatório" },
-                    is: { args: ["^[0-9]{14}$"], msg: "CNPJ deve conter 14 dígitos" }
+                    is: {args: ["[0-9]{2}\.[0-9]{3}\.[0-9]{3}\/[0-9]{4}\-[0-9]{2}"], msg: "O CPF deve seguir o padrão NN.NNN.NNN/NNNN-NN!" },
                 }
             },
             endereco: {

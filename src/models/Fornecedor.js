@@ -26,7 +26,7 @@ class Fornecedor extends Model {
                 unique: true,
                 validate: {
                   notEmpty: { msg: "CNPJ é obrigatório" },
-                  is: { args: ["^[0-9]{14}$"], msg: "CNPJ deve conter 14 dígitos" }
+                  is: {args: ["[0-9]{2}\.[0-9]{3}\.[0-9]{3}\/[0-9]{4}\-[0-9]{2}"], msg: "O CPF deve seguir o padrão NN.NNN.NNN/NNNN-NN!" },
                 }
               },
               email: {
@@ -42,7 +42,7 @@ class Fornecedor extends Model {
                 allowNull: false,
                 validate: {
                   notEmpty: { msg: "Telefone é obrigatório" },
-                  is: { args: [/^(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})$/], msg: "Telefone inválido" }
+                  is: {args: /^\([0-9]{2}\) [0-9]?[0-9]{4}-[0-9]{4}/, msg: "Telefone deve seguir o padrão (NN) NNNNN-NNNN" }
                 }
               }           
         }, { sequelize, modelName: 'fornecedor', tableName: 'fornecedores' })
