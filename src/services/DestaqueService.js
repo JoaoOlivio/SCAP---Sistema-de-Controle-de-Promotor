@@ -36,7 +36,7 @@ class DestaqueService {
       await obj.destroy();
       return obj;
     } catch (error) {
-      throw "Não é possível remover uma Destaque que possui avaliações!";
+      throw "Não é possível remover um Destaque que possui avaliações!";
     }
   }
 

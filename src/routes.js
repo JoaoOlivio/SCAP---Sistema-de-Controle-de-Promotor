@@ -4,6 +4,10 @@ import { PerfilController } from './controllers/PerfilController.js';
 import { ProdutoController } from './controllers/ProdutoController.js';
 import { DestaqueController } from './controllers/DestaqueController.js';
 
+import { LojaController } from './controllers/LojaController.js'
+import { UsuarioController } from "./controllers/UsuarioController.js";
+import { SaidaController } from "./controllers/SaidaController.js";
+
 
 const routes = express.Router();
 
@@ -25,5 +29,26 @@ routes.get('/destaques/:id', DestaqueController.findByPk);
 routes.post('/destaques', DestaqueController.create);
 routes.put('/destaques/:id', DestaqueController.update);
 routes.delete('/destaques/:id', DestaqueController.delete);
+
+//DIOGO
+routes.get('/lojas', LojaController.findAll);
+routes.get('/lojas/:id', LojaController.findByPk);
+routes.post('/lojas', LojaController.create);
+routes.put('/lojas/:id', LojaController.update);
+routes.delete('/lojas/:id', LojaController.delete);
+
+routes.get('/usuarios', UsuarioController.findAll);
+routes.get('/usuarios/:id', UsuarioController.findByPk);
+routes.post('/usuarios', UsuarioController.create);
+routes.put('/usuarios/:id', UsuarioController.update);
+routes.delete('/usuarios/:id', UsuarioController.delete);
+
+routes.get('/saidas', SaidaController.findAll);
+routes.get('/saidas/:id', SaidaController.findByPk);
+routes.post('/saidas', SaidaController.create);
+routes.put('/saidas/:id', SaidaController.update);
+routes.delete('/saidas/:id', SaidaController.delete);
+///DIOGO
+
 
 export default routes;
