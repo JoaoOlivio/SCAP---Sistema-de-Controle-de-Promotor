@@ -6,11 +6,16 @@ import { DestaqueController } from './controllers/DestaqueController.js';
 
 import { LojaController } from './controllers/LojaController.js'
 import { UsuarioController } from "./controllers/UsuarioController.js";
-import { SaidaController } from "./controllers/SaidaController.js";
+// import { SaidaController } from "./controllers/SaidaController.js";
+
+import { FornecedorController } from "./controllers/FornecedorController.js";
+import { PromotorController } from "./controllers/PromotorController.js";
+
 
 
 const routes = express.Router();
 
+//João
 routes.get('/perfils', PerfilController.findAll);
 routes.get('/perfils/:id', PerfilController.findByPk);
 routes.post('/perfils', PerfilController.create);
@@ -43,12 +48,24 @@ routes.post('/usuarios', UsuarioController.create);
 routes.put('/usuarios/:id', UsuarioController.update);
 routes.delete('/usuarios/:id', UsuarioController.delete);
 
-routes.get('/saidas', SaidaController.findAll);
-routes.get('/saidas/:id', SaidaController.findByPk);
-routes.post('/saidas', SaidaController.create);
-routes.put('/saidas/:id', SaidaController.update);
-routes.delete('/saidas/:id', SaidaController.delete);
-///DIOGO
+// routes.get('/saidas', SaidaController.findAll);
+// routes.get('/saidas/:id', SaidaController.findByPk);
+// routes.post('/saidas', SaidaController.create);
+// routes.put('/saidas/:id', SaidaController.update);
+// routes.delete('/saidas/:id', SaidaController.delete);
+
+//Gabriel
+routes.get('/fornecedores', FornecedorController.findAll);
+routes.get('/fornecedores/:id', FornecedorController.findByPk);
+routes.post('/fornecedores', FornecedorController.create);
+routes.put('/fornecedores/:id', FornecedorController.update);
+routes.delete('/fornecedores/:id', FornecedorController.delete);
+
+routes.get('/promotores', PromotorController.findAll);
+routes.get('/promotores/:id', PromotorController.findByPk);
+routes.post('/promotores', PromotorController.create);
+routes.put('/promotores/:id', PromotorController.update);
+routes.delete('/promotores/:id', PromotorController.delete);
 
 
 export default routes;
