@@ -22,7 +22,7 @@ routes.get('/produtos/:id', ProdutoController.findByPk);
 routes.post('/produtos', ProdutoController.create);
 routes.put('/produtos/:id', ProdutoController.update);
 routes.delete('/produtos/:id', ProdutoController.delete);
-routes.get('/produtos/findByFornecedor/:id', ProdutoController.findByFornecedor);
+// routes.get('/produtos/findByFornecedor/:id', ProdutoController.findByFornecedor);
 
 routes.get('/destaques', DestaqueController.findAll);
 routes.get('/destaques/:id', DestaqueController.findByPk);

@@ -14,24 +14,6 @@ class Entrada extends Model {
               len: { args: [2, 50], msg: "Crachá deve ter entre 2 e 50 caracteres" }
             }
           },
-          nome: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-              notEmpty: { msg: "Nome é obrigatório" },
-              notNull: { msg: "Nome não pode ser nulo" },
-              len: { args: [3, 50], msg: "Nome deve ter entre 3 e 50 caracteres" }
-            }
-          },
-          cpf: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-              notEmpty: { msg: "CPF é obrigatório." },
-              notNull: { msg: "CPF não pode ser Nulo." },
-              is: {args: ["[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}"], msg: "O CPF deve seguir o padrão NNN.NNN.NNN-NN!" },
-            }
-          },
           horario: {
             type: DataTypes.STRING,
             allowNull: false,
