@@ -37,7 +37,8 @@ class Entrada extends Model {
 
   static associate(models) {
     this.belongsTo(models.usuario, { foreignKey: {name: 'usuarioId' , allowNull: false, validate: {notNull: {msg: 'Usuário não pode ser nulo!'}}}, as: 'usuario' });
-    this.belongsTo(models.promotor_fornecedor, { foreignKey: {name: 'promotorFornecedorId' , allowNull: false, validate: {notNull: {msg: 'promotor_fornecedor não pode ser nulo!'}}}, as: 'promotor_fornecedor' });
+    this.belongsTo(models.promotor, { foreignKey: {name: 'promotorId' , allowNull: false, validate: {notNull: {msg: 'promotor_fornecedor não pode ser nulo!'}}}, as: 'promotor', through: 'promotor_fornecedor' });
+    this.belongsTo(models.fornecedor, { foreignKey: {name: 'fornecedorId' , allowNull: false, validate: {notNull: {msg: 'promotor_fornecedor não pode ser nulo!'}}}, as: 'fornecedor', through: 'promotor_fornecedor' });
 
   }
   
