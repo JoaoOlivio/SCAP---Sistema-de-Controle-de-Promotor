@@ -123,6 +123,7 @@ function databaseInserts() {
         const promotor_fornecedor2 = await PromotorFornecedor.create({ promotorId: 2, fornecedorId: 1});
         const promotor_fornecedor3 = await PromotorFornecedor.create({ promotorId: 1, fornecedorId: 3});
         const promotor_fornecedor4 = await PromotorFornecedor.create({ promotorId: 3, fornecedorId: 3});
+        
 
         const entrada1 = await Entrada.create({
             nome: "Entrada  1",
