@@ -3,14 +3,21 @@ import express from "express";
 import { PerfilController } from './controllers/PerfilController.js';
 import { ProdutoController } from './controllers/ProdutoController.js';
 import { DestaqueController } from './controllers/DestaqueController.js';
+import { AvaliacaoController } from './controllers/AvaliacaoController.js';
+
 
 import { LojaController } from './controllers/LojaController.js'
 import { UsuarioController } from "./controllers/UsuarioController.js";
-import { SaidaController } from "./controllers/SaidaController.js";
+// import { SaidaController } from "./controllers/SaidaController.js";
+
+import { FornecedorController } from "./controllers/FornecedorController.js";
+import { PromotorController } from "./controllers/PromotorController.js";
+
 
 
 const routes = express.Router();
 
+//João
 routes.get('/perfils', PerfilController.findAll);
 routes.get('/perfils/:id', PerfilController.findByPk);
 routes.post('/perfils', PerfilController.create);
@@ -30,6 +37,12 @@ routes.post('/destaques', DestaqueController.create);
 routes.put('/destaques/:id', DestaqueController.update);
 routes.delete('/destaques/:id', DestaqueController.delete);
 
+routes.get('/avaliacoes', AvaliacaoController.findAll);
+routes.get('/avaliacoes/:id', AvaliacaoController.findByPk);
+routes.post('/avaliacoes', AvaliacaoController.create);
+routes.put('/avaliacoes/:id', AvaliacaoController.update);
+routes.delete('/avaliacoes/:id', AvaliacaoController.delete);
+
 //DIOGO
 routes.get('/lojas', LojaController.findAll);
 routes.get('/lojas/:id', LojaController.findByPk);
@@ -43,12 +56,24 @@ routes.post('/usuarios', UsuarioController.create);
 routes.put('/usuarios/:id', UsuarioController.update);
 routes.delete('/usuarios/:id', UsuarioController.delete);
 
-routes.get('/saidas', SaidaController.findAll);
-routes.get('/saidas/:id', SaidaController.findByPk);
-routes.post('/saidas', SaidaController.create);
-routes.put('/saidas/:id', SaidaController.update);
-routes.delete('/saidas/:id', SaidaController.delete);
-///DIOGO
+// routes.get('/saidas', SaidaController.findAll);
+// routes.get('/saidas/:id', SaidaController.findByPk);
+// routes.post('/saidas', SaidaController.create);
+// routes.put('/saidas/:id', SaidaController.update);
+// routes.delete('/saidas/:id', SaidaController.delete);
+
+//Gabriel
+routes.get('/fornecedores', FornecedorController.findAll);
+routes.get('/fornecedores/:id', FornecedorController.findByPk);
+routes.post('/fornecedores', FornecedorController.create);
+routes.put('/fornecedores/:id', FornecedorController.update);
+routes.delete('/fornecedores/:id', FornecedorController.delete);
+
+routes.get('/promotores', PromotorController.findAll);
+routes.get('/promotores/:id', PromotorController.findByPk);
+routes.post('/promotores', PromotorController.create);
+routes.put('/promotores/:id', PromotorController.update);
+routes.delete('/promotores/:id', PromotorController.delete);
 
 
 export default routes;
