@@ -3,6 +3,8 @@ import express from "express";
 import { PerfilController } from './controllers/PerfilController.js';
 import { ProdutoController } from './controllers/ProdutoController.js';
 import { DestaqueController } from './controllers/DestaqueController.js';
+import { AvaliacaoController } from './controllers/AvaliacaoController.js';
+
 
 import { LojaController } from './controllers/LojaController.js'
 import { UsuarioController } from "./controllers/UsuarioController.js";
@@ -34,6 +36,12 @@ routes.get('/destaques/:id', DestaqueController.findByPk);
 routes.post('/destaques', DestaqueController.create);
 routes.put('/destaques/:id', DestaqueController.update);
 routes.delete('/destaques/:id', DestaqueController.delete);
+
+routes.get('/avaliacoes', AvaliacaoController.findAll);
+routes.get('/avaliacoes/:id', AvaliacaoController.findByPk);
+routes.post('/avaliacoes', AvaliacaoController.create);
+routes.put('/avaliacoes/:id', AvaliacaoController.update);
+routes.delete('/avaliacoes/:id', AvaliacaoController.delete);
 
 //DIOGO
 routes.get('/lojas', LojaController.findAll);

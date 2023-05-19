@@ -169,41 +169,43 @@ function databaseInserts() {
             usuarioId: 1,
             cracha: "CR111",
             nota: 4.5,
-            servicoConcluido: true,
+            servicoConcluido: false,
             observacao: "Bom trabalho.",
             entradaId: entrada1.id, // ID da entrada criada anteriormente
             destaqueId: 1,
         });
 
         const avaliacao2 = await Avaliacao.create({
-            usuarioId: 2,
+            usuarioId: 1,
             cracha: "CR112",
             nota: 4.6,
-            servicoConcluido: false,
+            servicoConcluido: true,
             observacao: "Razoável",
             entradaId: entrada2.id, // ID da entrada criada anteriormente
             destaqueId: 2,
         });
 
         const avaliacao3 = await Avaliacao.create({
-            usuarioId: 3,
+            usuarioId: 1,
             cracha: "CR113",
             nota: 4.4,
-            servicoConcluido: true,
+            servicoConcluido: false,
             observacao: "Ruim",
             entradaId: entrada3.id, // ID da entrada criada anteriormente
             destaqueId: 3,
         });
 
         const avaliacao4 = await Avaliacao.create({
-            usuarioId: 4,
+            usuarioId: 1,
             cracha: "CR114",
             nota: 4.8,
-            servicoConcluido: true,
+            servicoConcluido: false,
             observacao: "Excelente",
             entradaId: entrada4.id, // ID da entrada criada anteriormente
             destaqueId: 4,
         });
+
+        
 
         const saida1 = await Saida.create({
             portaoId: 1,
