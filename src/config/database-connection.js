@@ -74,7 +74,7 @@ function databaseInserts() {
         const perfil2 = await Perfil.create({ nome: "Perfil 2", equipe: true, admin: false, descricao: "Este é um perfil de exemplo.", });
         const perfil3 = await Perfil.create({ nome: "Perfil 3", equipe: false, admin: true, descricao: "Este é um perfil de exemplo.", });
         const perfil4 = await Perfil.create({ nome: "Perfil 4", equipe: true, admin: true, descricao: "Este é um perfil de exemplo.", });
-
+       
         const usuario1 = await Usuario.create({
             nome: "Usuário 1", senha: "123456", email: "usuarioexemplo1@email.com", lojaId: loja1.id, perfilId: perfil1.id,
         });
@@ -133,9 +133,9 @@ function databaseInserts() {
             horario: "08:00",
             data: "2023-04-13",
             usuarioId: usuario1.id, // ID do usuário criado anteriormente
-            //promotorFornecedorId: 1 // ID da relação Promotor_Fornecedor criada anteriormente
-            promotorId: 1,
-            fornecedorId: 1,
+            promotorFornecedorId: 1 // ID da relação Promotor_Fornecedor criada anteriormente
+            //promotorId: 1,
+            //fornecedorId: 1,
           });
         
         const entrada2 = await Entrada.create({
@@ -145,9 +145,9 @@ function databaseInserts() {
             horario: "09:00",
             data: "2023-04-14",
             usuarioId: usuario2.id, // ID do usuário criado anteriormente
-            //promotorFornecedorId: 2 // ID da relação Promotor_Fornecedor criada anteriormente
-            promotorId: 2,
-            fornecedorId: 1,
+            promotorFornecedorId: 2 // ID da relação Promotor_Fornecedor criada anteriormente
+            //promotorId: 2,
+            //fornecedorId: 1,
         });
 
         const entrada3 = await Entrada.create({
@@ -157,9 +157,9 @@ function databaseInserts() {
             horario: "10:00",
             data: "2023-04-15",
             usuarioId: usuario3.id, // ID do usuário criado anteriormente
-            //promotorFornecedorId: 3 // ID da relação Promotor_Fornecedor criada anteriormente
-            promotorId: 1,
-            fornecedorId: 3,
+            promotorFornecedorId: 3 // ID da relação Promotor_Fornecedor criada anteriormente
+            //promotorId: 1,
+            //fornecedorId: 3,
         });
 
         const entrada4 = await Entrada.create({
@@ -169,38 +169,28 @@ function databaseInserts() {
             horario: "11:00",
             data: "2023-04-16",
             usuarioId: usuario4.id, // ID do usuário criado anteriormente
-            //promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
-            promotorId: 3,
-            fornecedorId: 3,
+            promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
+            //promotorId: 3,
+            //fornecedorId: 3,
         });
 
-        const entrada10 = await Entrada.create({
-            nome: "Entrada  10",
-            cracha: "CR113",
-            cpf: "111.111.111-13",
-            horario: "12:00",
-            data: "2023-04-15",
-            usuarioId: usuario3.id, // ID do usuário criado anteriormente
-            // promotorFornecedorId: 3 // ID da relação Promotor_Fornecedor criada anteriormente
-            promotorId: 1,
-            fornecedorId: 3,
-        });
-
-        const avaliacao10 = await Avaliacao.create({
-            usuarioId: 1,
-            cracha: "CR113",
-            nota: 4.4,
-            servicoConcluido: false,
-            observacao: "Ruim",
-            entradaId: entrada10.id, // ID da entrada criada anteriormente
-            destaqueId: 3,
+        const entrada5 = await Entrada.create({
+            nome: "Entrada  4",
+            cracha: "CR114",
+            cpf: "111.111.111-14",
+            horario: "11:00",
+            data: "2023-04-16",
+            usuarioId: usuario4.id, // ID do usuário criado anteriormente
+            promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
+            //promotorId: 2,
+            //fornecedorId: 2,
         });
           
 
         const avaliacao1 = await Avaliacao.create({
             usuarioId: 1,
             cracha: "CR111",
-            nota: 4.5,
+            nota: 0,
             servicoConcluido: false,
             observacao: "Bom trabalho.",
             entradaId: entrada1.id, // ID da entrada criada anteriormente
@@ -210,8 +200,8 @@ function databaseInserts() {
         const avaliacao2 = await Avaliacao.create({
             usuarioId: 1,
             cracha: "CR112",
-            nota: 4.6,
-            servicoConcluido: true,
+            nota: 0,
+            servicoConcluido: false,
             observacao: "Razoável",
             entradaId: entrada2.id, // ID da entrada criada anteriormente
             destaqueId: 2,
@@ -220,7 +210,7 @@ function databaseInserts() {
         const avaliacao3 = await Avaliacao.create({
             usuarioId: 1,
             cracha: "CR113",
-            nota: 4.4,
+            nota: 0,
             servicoConcluido: false,
             observacao: "Ruim",
             entradaId: entrada3.id, // ID da entrada criada anteriormente
@@ -230,7 +220,7 @@ function databaseInserts() {
         const avaliacao4 = await Avaliacao.create({
             usuarioId: 1,
             cracha: "CR114",
-            nota: 4.8,
+            nota: 0,
             servicoConcluido: false,
             observacao: "Excelente",
             entradaId: entrada4.id, // ID da entrada criada anteriormente

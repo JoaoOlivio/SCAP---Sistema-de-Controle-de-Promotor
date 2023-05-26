@@ -2,6 +2,9 @@ import { Promotor } from "../models/Promotor.js";
 import { Fornecedor } from "../models/Fornecedor.js";
 
 import sequelize from '../config/database-connection.js';
+import { QueryTypes } from "sequelize";
+import { PromotorFornecedor } from "../models/PromotorFornecedor.js";
+import { Entrada } from "../models/Entrada.js";
 
 class PromotorService {
 
@@ -63,17 +66,20 @@ class PromotorService {
   }
 
   static async verificarUltimosServicosNaoConcluido(req) {
+    let entrada = await Entrada.findByPk(req.body.entradaId)
+    let promotor_fornecedor = await PromotorFornecedor.findByPk(entrada.id)
     const objs = await sequelize.query(`SELECT COUNT(*) AS servicos_nao_concluidos
     FROM avaliacoes
-    WHERE id IN (
-        SELECT id
-        FROM avaliacoes
-        WHERE usuario_id =  ${req.body.id}
-        ORDER BY created_at DESC
-        LIMIT 3
-    )
-    AND servico_concluido = false;`, { type: QueryTypes.SELECT });
-    return objs;
+   WHERE id IN (SELECT a.id
+                  FROM avaliacoes a
+                INNER JOIN entradas e on a.entrada_id = e.id
+                INNER JOIN promotor_fornecedores pf on e.promotor_fornecedor_id = pf.id
+                 WHERE pf.promotor_id = ${promotor_fornecedor.promotorId}
+                ORDER BY a.created_at DESC
+                LIMIT 3
+   )
+   AND servico_concluido = false;	`, { type: QueryTypes.SELECT });
+    return objs[0]['servicos_nao_concluidos'];
   }
 
 }
