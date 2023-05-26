@@ -32,6 +32,12 @@ class SaidaController {
             .then(obj => res.json(obj))
             .catch(next);
     }
+
+    static async saidaAutomatizada(req, res, next){
+        SaidaService.saidaAutomatizada(req)
+            .then(obj => res.json(obj))
+            .catch(next);
+    }
 }
 
 export { SaidaController };

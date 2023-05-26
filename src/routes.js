@@ -8,7 +8,7 @@ import { AvaliacaoController } from './controllers/AvaliacaoController.js';
 
 import { LojaController } from './controllers/LojaController.js'
 import { UsuarioController } from "./controllers/UsuarioController.js";
-// import { SaidaController } from "./controllers/SaidaController.js";
+import { SaidaController } from "./controllers/SaidaController.js";
 
 import { FornecedorController } from "./controllers/FornecedorController.js";
 import { PromotorController } from "./controllers/PromotorController.js";
@@ -56,11 +56,12 @@ routes.post('/usuarios', UsuarioController.create);
 routes.put('/usuarios/:id', UsuarioController.update);
 routes.delete('/usuarios/:id', UsuarioController.delete);
 
-// routes.get('/saidas', SaidaController.findAll);
-// routes.get('/saidas/:id', SaidaController.findByPk);
-// routes.post('/saidas', SaidaController.create);
-// routes.put('/saidas/:id', SaidaController.update);
-// routes.delete('/saidas/:id', SaidaController.delete);
+routes.get('/saidas', SaidaController.findAll);
+routes.get('/saidas/:id', SaidaController.findByPk);
+routes.post('/saidas', SaidaController.create);
+routes.put('/saidas/:id', SaidaController.update);
+routes.delete('/saidas/:id', SaidaController.delete);
+routes.post('/saidas/verificacao', SaidaController.saidaAutomatizada);
 
 //Gabriel
 routes.get('/fornecedores', FornecedorController.findAll);
