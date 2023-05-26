@@ -132,9 +132,9 @@ function databaseInserts() {
             horario: "08:00",
             data: "2023-04-13",
             usuarioId: usuario1.id, // ID do usuário criado anteriormente
-            //promotorFornecedorId: 1 // ID da relação Promotor_Fornecedor criada anteriormente
-            promotorId: 1,
-            fornecedorId: 1,
+            promotorFornecedorId: 1 // ID da relação Promotor_Fornecedor criada anteriormente
+            //promotorId: 1,
+            //fornecedorId: 1,
           });
         
         const entrada2 = await Entrada.create({
@@ -144,9 +144,9 @@ function databaseInserts() {
             horario: "09:00",
             data: "2023-04-14",
             usuarioId: usuario2.id, // ID do usuário criado anteriormente
-            //promotorFornecedorId: 2 // ID da relação Promotor_Fornecedor criada anteriormente
-            promotorId: 2,
-            fornecedorId: 1,
+            promotorFornecedorId: 2 // ID da relação Promotor_Fornecedor criada anteriormente
+            //promotorId: 2,
+            //fornecedorId: 1,
         });
 
         const entrada3 = await Entrada.create({
@@ -156,9 +156,9 @@ function databaseInserts() {
             horario: "10:00",
             data: "2023-04-15",
             usuarioId: usuario3.id, // ID do usuário criado anteriormente
-            //promotorFornecedorId: 3 // ID da relação Promotor_Fornecedor criada anteriormente
-            promotorId: 1,
-            fornecedorId: 3,
+            promotorFornecedorId: 3 // ID da relação Promotor_Fornecedor criada anteriormente
+            //promotorId: 1,
+            //fornecedorId: 3,
         });
 
         const entrada4 = await Entrada.create({
@@ -168,9 +168,9 @@ function databaseInserts() {
             horario: "11:00",
             data: "2023-04-16",
             usuarioId: usuario4.id, // ID do usuário criado anteriormente
-            //promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
-            promotorId: 3,
-            fornecedorId: 3,
+            promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
+            //promotorId: 3,
+            //fornecedorId: 3,
         });
 
         const entrada5 = await Entrada.create({
@@ -180,9 +180,9 @@ function databaseInserts() {
             horario: "11:00",
             data: "2023-04-16",
             usuarioId: usuario4.id, // ID do usuário criado anteriormente
-            //promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
-            promotorId: 2,
-            fornecedorId: 2,
+            promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
+            //promotorId: 2,
+            //fornecedorId: 2,
         });
           
 
