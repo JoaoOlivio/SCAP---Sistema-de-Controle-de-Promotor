@@ -172,6 +172,18 @@ function databaseInserts() {
             promotorId: 3,
             fornecedorId: 3,
         });
+
+        const entrada5 = await Entrada.create({
+            nome: "Entrada  4",
+            cracha: "CR114",
+            cpf: "111.111.111-14",
+            horario: "11:00",
+            data: "2023-04-16",
+            usuarioId: usuario4.id, // ID do usuário criado anteriormente
+            //promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
+            promotorId: 2,
+            fornecedorId: 2,
+        });
           
 
         const avaliacao1 = await Avaliacao.create({

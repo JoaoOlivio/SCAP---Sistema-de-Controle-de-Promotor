@@ -37,6 +37,7 @@ routes.post('/destaques', DestaqueController.create);
 routes.put('/destaques/:id', DestaqueController.update);
 routes.delete('/destaques/:id', DestaqueController.delete);
 
+//Regra de Negocio - Joao
 routes.get('/avaliacoes', AvaliacaoController.findAll);
 routes.get('/avaliacoes/:id', AvaliacaoController.findByPk);
 routes.post('/avaliacoes', AvaliacaoController.create);
