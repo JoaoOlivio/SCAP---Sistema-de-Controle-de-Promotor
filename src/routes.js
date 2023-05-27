@@ -12,7 +12,7 @@ import { SaidaController } from "./controllers/SaidaController.js";
 
 import { FornecedorController } from "./controllers/FornecedorController.js";
 import { PromotorController } from "./controllers/PromotorController.js";
-
+import { EntradaController } from "./controllers/EntradaController.js";
 
 
 const routes = express.Router();
@@ -75,6 +75,12 @@ routes.get('/promotores/:id', PromotorController.findByPk);
 routes.post('/promotores', PromotorController.create);
 routes.put('/promotores/:id', PromotorController.update);
 routes.delete('/promotores/:id', PromotorController.delete);
+
+routes.get('/entradas', EntradaController.findAll);
+routes.get('/entradas/:id', EntradaController.findByPk);
+routes.post('/entradas', EntradaController.create);
+routes.put('/entradas/:id', EntradaController.update);
+routes.delete('/entradas/:id', EntradaController.delete);
 
 
 export default routes;

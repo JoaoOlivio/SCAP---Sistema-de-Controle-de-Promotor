@@ -22,6 +22,9 @@
     - Não poderá ter um novo registro de entrada, caso esse promotor já tenha um registro de entrada em aberto. 
     - Só é permitida a entrada de 10 pessoas por momento.
 
+    -Select entradas filtrando pelo cacrach e a data do dia. 
+    -se
+
 # Diogo Oliveira
 - Saída (RN)
 - Loja

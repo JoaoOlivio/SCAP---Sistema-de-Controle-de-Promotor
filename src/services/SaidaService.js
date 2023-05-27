@@ -93,11 +93,11 @@ class SaidaService{
                 const horario = horarioAtual
                 const data = dataAtual
                 const entradaId = element.id
-                const usuarioId = element.promotor_id
+                const usuarioId = element.promotor_fornecedor_id
                 const obj = await Saida.create({portaoId, cracha, horario, data, entradaId, usuarioId});
             }
         });
-        return "deucerto"
+        return "Deu Certo"
     }
 
 }

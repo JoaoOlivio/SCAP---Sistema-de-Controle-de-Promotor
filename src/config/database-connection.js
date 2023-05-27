@@ -143,7 +143,7 @@ function databaseInserts() {
             cracha: "CR112",
             cpf: "111.111.111-12",
             horario: "09:00",
-            data: "2023-04-14",
+            data: "2023-04-13",
             usuarioId: usuario2.id, // ID do usuário criado anteriormente
             promotorFornecedorId: 2 // ID da relação Promotor_Fornecedor criada anteriormente
             //promotorId: 2,
@@ -155,7 +155,7 @@ function databaseInserts() {
             cracha: "CR113",
             cpf: "111.111.111-13",
             horario: "10:00",
-            data: "2023-04-15",
+            data: "2023-04-13",
             usuarioId: usuario3.id, // ID do usuário criado anteriormente
             promotorFornecedorId: 3 // ID da relação Promotor_Fornecedor criada anteriormente
             //promotorId: 1,
@@ -167,30 +167,31 @@ function databaseInserts() {
             cracha: "CR114",
             cpf: "111.111.111-14",
             horario: "11:00",
-            data: "2023-04-16",
+            data: "2023-04-13",
             usuarioId: usuario4.id, // ID do usuário criado anteriormente
             promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
             //promotorId: 3,
             //fornecedorId: 3,
         });
 
-        const entrada5 = await Entrada.create({
-            nome: "Entrada  4",
-            cracha: "CR114",
-            cpf: "111.111.111-14",
+        const entrada6 = await Entrada.create({
+            nome: "Entrada 6",
+            cracha: "CR116",
+            cpf: "111.111.111-16",
             horario: "11:00",
-            data: "2023-04-16",
+            data: "2023-04-13",
             usuarioId: usuario4.id, // ID do usuário criado anteriormente
             promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
-            //promotorId: 2,
-            //fornecedorId: 2,
+            //promotorId: 3,
+            //fornecedorId: 3,
         });
-          
+
+       
 
         const avaliacao1 = await Avaliacao.create({
             usuarioId: 1,
             cracha: "CR111",
-            nota: 0,
+            nota: 5,
             servicoConcluido: false,
             observacao: "Bom trabalho.",
             entradaId: entrada1.id, // ID da entrada criada anteriormente
@@ -200,7 +201,7 @@ function databaseInserts() {
         const avaliacao2 = await Avaliacao.create({
             usuarioId: 1,
             cracha: "CR112",
-            nota: 0,
+            nota: 6,
             servicoConcluido: false,
             observacao: "Razoável",
             entradaId: entrada2.id, // ID da entrada criada anteriormente
@@ -208,9 +209,9 @@ function databaseInserts() {
         });
 
         const avaliacao3 = await Avaliacao.create({
-            usuarioId: 1,
+            usuarioId: 2,
             cracha: "CR113",
-            nota: 0,
+            nota: 1,
             servicoConcluido: false,
             observacao: "Ruim",
             entradaId: entrada3.id, // ID da entrada criada anteriormente
@@ -218,13 +219,23 @@ function databaseInserts() {
         });
 
         const avaliacao4 = await Avaliacao.create({
-            usuarioId: 1,
+            usuarioId: 2,
             cracha: "CR114",
-            nota: 0,
-            servicoConcluido: false,
-            observacao: "Excelente",
+            nota: 1,
+            servicoConcluido: true,
+            observacao: "Ruim",
             entradaId: entrada4.id, // ID da entrada criada anteriormente
             destaqueId: 4,
+        });
+
+        const avaliacao5 = await Avaliacao.create({
+            usuarioId: 1,
+            cracha: "CR112",
+            nota: 6,
+            servicoConcluido: false,
+            observacao: "Razoável",
+            entradaId: entrada2.id, // ID da entrada criada anteriormente
+            destaqueId: 2,
         });
 
         
@@ -232,7 +243,7 @@ function databaseInserts() {
         const saida1 = await Saida.create({
             cracha: "CR111",
             horario: "09:00",
-            data: "2023-04-16",
+            data: "2023-04-13",
             portaoId: portao1.id, //  ID do porto criado anteriormente
             usuarioId: usuario1.id, // ID do usuário criado anteriormente
             entradaId: entrada1.id // ID da entrada criada anteriormente
@@ -247,25 +258,23 @@ function databaseInserts() {
             entradaId: entrada2.id // ID da entrada criada anteriormente
         });
 
-        // const saida3 = await Saida.create({
-        //     cracha: "CR113",
-        //     horario: "11:00",
-        //     data: "2023-04-16",
-        //     portaoId: portao3.id, //  ID do porto criado anteriormente
-        //     usuarioId: usuario3.id, // ID do usuário criado anteriormente
-        //     entradaId: entrada3.id // ID da entrada criada anteriormente
-        // });
+        const saida3 = await Saida.create({
+            cracha: "CR112",
+            horario: "10:00",
+            data: "2023-04-16",
+            portaoId: portao2.id, //  ID do porto criado anteriormente
+            usuarioId: usuario3.id, // ID do usuário criado anteriormente
+            entradaId: entrada2.id // ID da entrada criada anteriormente
+        });
 
-        // const saida4 = await Saida.create({
-        //     portaoId: 4,
-        //     nome: "Saida 4",
-        //     cracha: "CR114",
-        //     cpf: "111.111.111-14",
-        //     horario: "21:00",
-        //     data: "2023-04-16",
-        //     avaliacaoId: avaliacao2.id, //  ID da avaliação criada anteriormente
-        //     usuarioId: usuario2.id, // ID do usuário criado anteriormente
-        // });
+        const saida4 = await Saida.create({
+            cracha: "CR112",
+            horario: "10:00",
+            data: "2023-04-16",
+            portaoId: portao4.id, //  ID do porto criado anteriormente
+            usuarioId: usuario4.id, // ID do usuário criado anteriormente
+            entradaId: entrada2.id // ID da entrada criada anteriormente
+        });
 
 
     })();

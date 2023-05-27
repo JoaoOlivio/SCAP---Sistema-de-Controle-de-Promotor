@@ -28,38 +28,28 @@ class AvaliacaoService {
     return obj
   }
 
-  
 
-  //   static async update(req) {
-  //     const { id } = req.params;
-  //     const { data, valor, cliente, itens } = req.body;
-  //     const obj = await Avaliacao.findByPk(id, { include: { all: true, nested: true } });
-  //     if (obj == null) throw 'Empréstimo não encontrado!';
-  //     const t = await sequelize.transaction();
-  //     Object.assign(obj, { data, valor, clienteId: cliente.id });
-  //     await obj.save({ transaction: t }); // Salvando os dados simples do objeto empréstimo
-  //     try {
-  //       await Promise.all((await obj.itens).map(item => item.destroy({ transaction: t }))); // destruindo todos itens deste empréstimo
-  //       await Promise.all(itens.map(item => obj.createItem({ valor: item.valor, entrega: item.entrega, AvaliacaoId: obj.id, fitaId: item.fita.id }, { transaction: t })));
-  //       await t.commit();
-  //       return await Avaliacao.findByPk(obj.id, { include: { all: true, nested: true } });
-  //     } catch (error) {
-  //       await t.rollback();
-  //       throw "Pelo menos uma das fitas informadas não foi encontrada!";
-  //     }
-  //   }
+  static async update(req){
+    const {id} = req.params;
 
-  //   static async delete(req) {
-  //     const { id } = req.params;
-  //     const obj = await Avaliacao.findByPk(id);
-  //     if (obj == null) throw 'Empréstimo não encontrado!';
-  //     try {
-  //       await obj.destroy();
-  //       return obj;
-  //     } catch (error) {
-  //       throw "Não é possível remover um empréstimo que possui devoluções ou multas!";
-  //     }
-  //   }
+    const obj = await Avaliacao.findByPk(id, {include: {all: true, nested: true}})
+    if(obj == null) throw 'Avaliação não encontrada';
+    Object.assign(obj, {cracha, servicoConcluido, nota, observacao, usuarioId, destaqueId});
+    await obj.save();
+    return await Avaliacao.findByPk(obj.id, {include: {all: true, nested: true}} );
+}
+
+    static async delete(req) {
+      const { id } = req.params;
+      const obj = await Avaliacao.findByPk(id);
+      if (obj == null) throw 'Avaliação não encontrada!';
+      try {
+        await obj.destroy();
+        return obj;
+      } catch (error) {
+        throw "Não é possível remover uma Avaliação pois está relacionado a uma entrada!";
+      }
+    }
 
 
   static async verificarMediaAvaliacoes(req) {
