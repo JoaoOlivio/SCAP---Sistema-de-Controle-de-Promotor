@@ -38,6 +38,18 @@ class SaidaController {
             .then(obj => res.json(obj))
             .catch(next);
     }
+
+    static async horasPorPromotor(req, res, next){
+        SaidaService.horasPorPromotor(req)
+            .then(obj => res.json(obj))
+            .catch(next);
+    }
+
+    static async saidaNaoRealizada(req, res, next){
+        SaidaService.saidaNaoRealizada(req)
+            .then(obj => res.json(obj))
+            .catch(next);
+    }
 }
 
 export { SaidaController };

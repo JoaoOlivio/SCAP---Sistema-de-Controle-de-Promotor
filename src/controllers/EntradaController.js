@@ -38,6 +38,18 @@ class EntradaController {
             .then(obj => res.json(obj))
             .catch(next);
     }
+
+    static async quantidadeDeEntradaPorPromotor(req, res, next) {
+        EntradaService.quantidadeDeEntradaPorPromotor(req)
+            .then(obj => res.json(obj))
+            .catch(next);
+    }
+
+    static async quantidadeDeEntradaPorPromotorFindFornecedor(req, res, next) {
+        EntradaService.quantidadeDeEntradaPorPromotorFindFornecedor(req)
+            .then(obj => res.json(obj))
+            .catch(next);
+      }
 }
 
 export { EntradaController };

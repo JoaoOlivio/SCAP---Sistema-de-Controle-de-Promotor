@@ -100,6 +100,38 @@ class SaidaService{
         return "Deu Certo"
     }
 
+    //Diogo
+    static async horasPorPromotor(req) {
+        const { inicio, termino } = req.params;
+        const objs = await sequelize.query(`
+                    SELECT p.nome,
+                    s.horario - e.horario as horas
+            FROM saidas s
+            INNER JOIN entradas e on s.entrada_id = e.id
+            INNER JOIN promotor_fornecedores pf on e.promotor_fornecedor_id = pf.id
+            INNER JOIN promotores p on pf.promotor_id = p.id
+            WHERE s.data BETWEEN :inicio AND :termino
+            GROUP BY p.nome
+        `, { replacements: { inicio: inicio, termino: termino }, type: QueryTypes.SELECT });
+        return objs;
+    }
+
+    //Diogo
+    static async saidaNaoRealizada(req) {
+        const { inicio, termino } = req.params;
+        const objs = await sequelize.query(`
+                    SELECT f.razao_social,
+                    COUNT(e.id) AS visitas
+            FROM entradas e
+            LEFT JOIN saidas s on s.entrada_id = e.id
+            INNER JOIN promotor_fornecedores pf on e.promotor_fornecedor_id = pf.id
+            INNER JOIN fornecedores f on pf.fornecedor_id = f.id
+            WHERE e.data BETWEEN :inicio AND :termino
+            AND s.id IS NULL
+            GROUP BY f.razao_social
+        `, { replacements: { inicio: inicio, termino: termino }, type: QueryTypes.SELECT });
+        return objs;
+    }
 }
 
 export { SaidaService };

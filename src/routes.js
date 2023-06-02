@@ -42,6 +42,9 @@ routes.get('/avaliacoes/:id', AvaliacaoController.findByPk);
 routes.post('/avaliacoes', AvaliacaoController.create);
 routes.put('/avaliacoes/:id', AvaliacaoController.update);
 routes.delete('/avaliacoes/:id', AvaliacaoController.delete);
+routes.get('/avaliacoes/relatorio1/:inicio/:termino', AvaliacaoController.mediaAvaliacaoPorPeriodo);
+routes.get('/avaliacoes/relatorio2/:id', AvaliacaoController.ranqueDeDestaque);
+
 
 //DIOGO
 routes.get('/lojas', LojaController.findAll);
@@ -62,6 +65,8 @@ routes.post('/saidas', SaidaController.create);
 routes.put('/saidas/:id', SaidaController.update);
 routes.delete('/saidas/:id', SaidaController.delete);
 routes.post('/saidas/verificacao', SaidaController.saidaAutomatizada);
+routes.get('/saidas/relatorio1/:inicio/:termino', SaidaController.horasPorPromotor);
+routes.get('/saidas/relatorio2/:inicio/:termino', SaidaController.saidaNaoRealizada);
 
 //Gabriel
 routes.get('/fornecedores', FornecedorController.findAll);
@@ -81,6 +86,9 @@ routes.get('/entradas/:id', EntradaController.findByPk);
 routes.post('/entradas', EntradaController.create);
 routes.put('/entradas/:id', EntradaController.update);
 routes.delete('/entradas/:id', EntradaController.delete);
+routes.get('/entradas/relatorio1/:inicio/:termino', EntradaController.quantidadeDeEntradaPorPromotor);
+routes.get('/entradas/relatorio2/:inicio/:termino/:promotor', EntradaController.quantidadeDeEntradaPorPromotorFindFornecedor);
+
 
 
 export default routes;

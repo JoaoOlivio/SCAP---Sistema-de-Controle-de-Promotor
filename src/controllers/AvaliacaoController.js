@@ -32,6 +32,17 @@ class AvaliacaoController {
         .catch(next);
   }
 
+  static async mediaAvaliacaoPorPeriodo(req, res, next) {
+    AvaliacaoService.mediaAvaliacaoPorPeriodo(req)
+        .then(obj => res.json(obj))
+        .catch(next);
+  }
+
+  static async ranqueDeDestaque(req, res, next) {
+    AvaliacaoService.ranqueDeDestaque(req)
+        .then(obj => res.json(obj))
+        .catch(next);
+  }
 }
 
 export { AvaliacaoController };

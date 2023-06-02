@@ -88,6 +88,38 @@ LIMIT 3`, { type: QueryTypes.SELECT });
     return result
   }
 
+  //Joao
+  static async mediaAvaliacaoPorPeriodo(req) {
+    const { inicio, termino } = req.params;
+    const objs = await sequelize.query(`
+    SELECT p.nome,
+       AVG(a.nota) AS media_avaliacoes
+  FROM avaliacoes a
+INNER JOIN entradas e on a.entrada_id = e.id
+INNER JOIN promotor_fornecedores pf on e.promotor_fornecedor_id = pf.id
+INNER JOIN promotores p on pf.promotor_id = p.id
+WHERE a.created_at BETWEEN  :inicio AND :termino
+GROUP BY p.nome
+    `, { replacements: { inicio: inicio, termino: termino }, type: QueryTypes.SELECT });
+    return objs;
+  }
+
+  //Joao
+  static async ranqueDeDestaque(req) {
+    const { id } = req.params;
+    const objs = await sequelize.query(`SELECT d.nome as destaques,
+    COUNT(d.id) as quantidade
+FROM avaliacoes a
+INNER JOIN entradas e on a.entrada_id = e.id
+INNER JOIN promotor_fornecedores pf on e.promotor_fornecedor_id = pf.id
+INNER JOIN destaques d on a.destaque_id = d.id
+WHERE pf.promotor_id = :id
+GROUP BY d.nome
+ORDER BY COUNT(d.id) DESC
+    `, { replacements: { id: id, }, type: QueryTypes.SELECT });
+    return objs;
+  }
+
 }
 
 export { AvaliacaoService };
