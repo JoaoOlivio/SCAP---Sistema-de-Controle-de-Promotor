@@ -16,7 +16,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-// app.use(express.json());
+app.use(express.json());
 app.use(routes);
 app.use(errorHandler); // Manipulador de erro global (error handler)
 
