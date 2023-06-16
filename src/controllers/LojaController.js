@@ -5,7 +5,9 @@ import { LojaService } from "../services/LojaService.js"
 class LojaController {
 
     static async findAll(req, res, next){
-        LojaService.findAll()
+        const { sortBy, sortOrder } = req.query;
+
+        (await LojaService.findAll()).sort('id')
             .then(objs => res.json(objs))
             .catch(next);
     }
