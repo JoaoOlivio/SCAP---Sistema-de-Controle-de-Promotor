@@ -52,229 +52,231 @@ databaseInserts(); // comentar quando estiver em ambiente de produção (não cr
 function databaseInserts() {
     (async () => {
 
-        await sequelize.sync({ force: true });
+        await sequelize.sync();
 
-        const loja1 = await Loja.create({ nome: "Loja 1", cnpj: "11.111.111/0001-00", endereco: "Rua Exemplo, 111", descricao: "Esta é uma loja de exemplo.", });
-        const loja2 = await Loja.create({ nome: "Loja 2", cnpj: "22.222.222/0001-00", endereco: "Rua Exemplo, 222", descricao: "Esta é uma loja de exemplo.", });
-        const loja3 = await Loja.create({ nome: "Loja 3", cnpj: "33.333.333/0001-00", endereco: "Rua Exemplo, 333", descricao: "Esta é uma loja de exemplo.", });
-        const loja4 = await Loja.create({ nome: "Loja 4", cnpj: "44.444.444/0001-00", endereco: "Rua Exemplo, 444", descricao: "Esta é uma loja de exemplo.", });
+        //await sequelize.sync({ force: true });
 
-        const portao1 = await Portao.create({ nome: 'Portão 1', lojaId: 1 });
-        const portao2 = await Portao.create({ nome: 'Portão 2', lojaId: 2 });
-        const portao3 = await Portao.create({ nome: 'Portão 3', lojaId: 3 });
-        const portao4 = await Portao.create({ nome: 'Portão 4', lojaId: 4 });
-        const portao5 = await Portao.create({ nome: 'Saida Automatica', lojaId: 4 });
+        // const loja1 = await Loja.create({ nome: "Loja 1", cnpj: "11.111.111/0001-00", endereco: "Rua Exemplo, 111", descricao: "Esta é uma loja de exemplo.", });
+        // const loja2 = await Loja.create({ nome: "Loja 2", cnpj: "22.222.222/0001-00", endereco: "Rua Exemplo, 222", descricao: "Esta é uma loja de exemplo.", });
+        // const loja3 = await Loja.create({ nome: "Loja 3", cnpj: "33.333.333/0001-00", endereco: "Rua Exemplo, 333", descricao: "Esta é uma loja de exemplo.", });
+        // const loja4 = await Loja.create({ nome: "Loja 4", cnpj: "44.444.444/0001-00", endereco: "Rua Exemplo, 444", descricao: "Esta é uma loja de exemplo.", });
 
-        const destaque1 = await Destaque.create({ nome: 'Destaque 1' });
-        const destaque2 = await Destaque.create({ nome: 'Destaque 2' });
-        const destaque3 = await Destaque.create({ nome: 'Destaque 3' });
-        const destaque4 = await Destaque.create({ nome: 'Destaque 4' });
+        // const portao1 = await Portao.create({ nome: 'Portão 1', lojaId: 1 });
+        // const portao2 = await Portao.create({ nome: 'Portão 2', lojaId: 2 });
+        // const portao3 = await Portao.create({ nome: 'Portão 3', lojaId: 3 });
+        // const portao4 = await Portao.create({ nome: 'Portão 4', lojaId: 4 });
+        // const portao5 = await Portao.create({ nome: 'Saida Automatica', lojaId: 4 });
 
-        const perfil1 = await Perfil.create({ nome: "Perfil 1", equipe: false, admin: false, descricao: "Este é um perfil de exemplo.", });
-        const perfil2 = await Perfil.create({ nome: "Perfil 2", equipe: true, admin: false, descricao: "Este é um perfil de exemplo.", });
-        const perfil3 = await Perfil.create({ nome: "Perfil 3", equipe: false, admin: true, descricao: "Este é um perfil de exemplo.", });
-        const perfil4 = await Perfil.create({ nome: "Perfil 4", equipe: true, admin: true, descricao: "Este é um perfil de exemplo.", });
+        // const destaque1 = await Destaque.create({ nome: 'Destaque 1' });
+        // const destaque2 = await Destaque.create({ nome: 'Destaque 2' });
+        // const destaque3 = await Destaque.create({ nome: 'Destaque 3' });
+        // const destaque4 = await Destaque.create({ nome: 'Destaque 4' });
+
+        // const perfil1 = await Perfil.create({ nome: "Perfil 1", equipe: false, admin: false, descricao: "Este é um perfil de exemplo.", });
+        // const perfil2 = await Perfil.create({ nome: "Perfil 2", equipe: true, admin: false, descricao: "Este é um perfil de exemplo.", });
+        // const perfil3 = await Perfil.create({ nome: "Perfil 3", equipe: false, admin: true, descricao: "Este é um perfil de exemplo.", });
+        // const perfil4 = await Perfil.create({ nome: "Perfil 4", equipe: true, admin: true, descricao: "Este é um perfil de exemplo.", });
        
-        const usuario1 = await Usuario.create({
-            nome: "Usuário 1", senha: "123456", email: "usuarioexemplo1@email.com", lojaId: loja1.id, perfilId: perfil1.id,
-        });
-        const usuario2 = await Usuario.create({
-            nome: "Usuário 2", senha: "123456", email: "usuarioexemplo2@email.com", lojaId: loja2.id, perfilId: perfil2.id,
-        });
-        const usuario3 = await Usuario.create({
-            nome: "Usuário 3", senha: "123456", email: "usuarioexemplo3@email.com", lojaId: loja3.id, perfilId: perfil3.id,
-        });
-        const usuario4 = await Usuario.create({
-            nome: "Usuário 4", senha: "123456", email: "usuarioexemplo4@email.com",            lojaId: loja4.id, perfilId: perfil4.id,
-        });
+        // const usuario1 = await Usuario.create({
+        //     nome: "Usuário 1", senha: "123456", email: "usuarioexemplo1@email.com", lojaId: loja1.id, perfilId: perfil1.id,
+        // });
+        // const usuario2 = await Usuario.create({
+        //     nome: "Usuário 2", senha: "123456", email: "usuarioexemplo2@email.com", lojaId: loja2.id, perfilId: perfil2.id,
+        // });
+        // const usuario3 = await Usuario.create({
+        //     nome: "Usuário 3", senha: "123456", email: "usuarioexemplo3@email.com", lojaId: loja3.id, perfilId: perfil3.id,
+        // });
+        // const usuario4 = await Usuario.create({
+        //     nome: "Usuário 4", senha: "123456", email: "usuarioexemplo4@email.com",            lojaId: loja4.id, perfilId: perfil4.id,
+        // });
 
-        const promotor1 = await Promotor.create({
-            nome: "Promotor 1", email: "promotorexemplo@email.com", telefone: "(11) 12345-6789", cpf: "000.000.000-00", razaoSocial: "Razão Social Exemplo", sexo: "Masculino", nascimento: "1990-01-01",
-        });
-        const promotor2 = await Promotor.create({
-            nome: "Promotor 2", email: "promotorexemplo@email.com", telefone: "(11) 12345-6789", cpf: "000.000.000-00", razaoSocial: "Razão Social Exemplo", sexo: "Masculino", nascimento: "1999-01-01",
-        });
-        const promotor3 = await Promotor.create({
-            nome: "Promotor 3", email: "promotorexemplo@email.com", telefone: "(11) 12345-6789", cpf: "000.000.000-00", razaoSocial: "Razão Social Exemplo", sexo: "Masculino", nascimento: "1995-01-01",
-        });
-        const promotor4 = await Promotor.create({
-            nome: "Promotor 4", email: "promotorexemplo@email.com", telefone: "(11) 12345-6789", cpf: "000.000.000-00", razaoSocial: "Razão Social Exemplo", sexo: "Masculino", nascimento: "1994-01-01",
-        });
+        // const promotor1 = await Promotor.create({
+        //     nome: "Promotor 1", email: "promotorexemplo@email.com", telefone: "(11) 12345-6789", cpf: "000.000.000-00", razaoSocial: "Razão Social Exemplo", sexo: "Masculino", nascimento: "1990-01-01",
+        // });
+        // const promotor2 = await Promotor.create({
+        //     nome: "Promotor 2", email: "promotorexemplo@email.com", telefone: "(11) 12345-6789", cpf: "000.000.000-00", razaoSocial: "Razão Social Exemplo", sexo: "Masculino", nascimento: "1999-01-01",
+        // });
+        // const promotor3 = await Promotor.create({
+        //     nome: "Promotor 3", email: "promotorexemplo@email.com", telefone: "(11) 12345-6789", cpf: "000.000.000-00", razaoSocial: "Razão Social Exemplo", sexo: "Masculino", nascimento: "1995-01-01",
+        // });
+        // const promotor4 = await Promotor.create({
+        //     nome: "Promotor 4", email: "promotorexemplo@email.com", telefone: "(11) 12345-6789", cpf: "000.000.000-00", razaoSocial: "Razão Social Exemplo", sexo: "Masculino", nascimento: "1994-01-01",
+        // });
 
-        const fornecedor1 = await Fornecedor.create({
-            nomeFantasia: "Fornecedor 1", razaoSocial: "Fornecedor Exemplo Ltda", email: "fornecedorexemplo@email.com", telefone: "(11) 12345-6789", cnpj: "00.000.000/0001-00",
-        });
-        const fornecedor2 = await Fornecedor.create({
-            nomeFantasia: "Fornecedor 2", razaoSocial: "Fornecedor Exemplo Ltda", email: "fornecedorexemplo@email.com", telefone: "(11) 12345-6789", cnpj: "00.000.000/0001-00",
-        });
-        const fornecedor3 = await Fornecedor.create({
-            nomeFantasia: "Fornecedor 3", razaoSocial: "Fornecedor Exemplo Ltda", email: "fornecedorexemplo@email.com", telefone: "(11) 12345-6789", cnpj: "00.000.000/0001-00",
-        });
-        const fornecedor4 = await Fornecedor.create({
-            nomeFantasia: "Fornecedor 4", razaoSocial: "Fornecedor Exemplo Ltda", email: "fornecedorexemplo@email.com", telefone: "(11) 12345-6789", cnpj: "00.000.000/0001-00",
-        });
+        // const fornecedor1 = await Fornecedor.create({
+        //     nomeFantasia: "Fornecedor 1", razaoSocial: "Fornecedor Exemplo Ltda", email: "fornecedorexemplo@email.com", telefone: "(11) 12345-6789", cnpj: "00.000.000/0001-00",
+        // });
+        // const fornecedor2 = await Fornecedor.create({
+        //     nomeFantasia: "Fornecedor 2", razaoSocial: "Fornecedor Exemplo Ltda", email: "fornecedorexemplo@email.com", telefone: "(11) 12345-6789", cnpj: "00.000.000/0001-00",
+        // });
+        // const fornecedor3 = await Fornecedor.create({
+        //     nomeFantasia: "Fornecedor 3", razaoSocial: "Fornecedor Exemplo Ltda", email: "fornecedorexemplo@email.com", telefone: "(11) 12345-6789", cnpj: "00.000.000/0001-00",
+        // });
+        // const fornecedor4 = await Fornecedor.create({
+        //     nomeFantasia: "Fornecedor 4", razaoSocial: "Fornecedor Exemplo Ltda", email: "fornecedorexemplo@email.com", telefone: "(11) 12345-6789", cnpj: "00.000.000/0001-00",
+        // });
 
-        const produto1 = await Produto.create({ descricao: "Produto 1", precoCusto: 10, precoVenda: 20, fornecedorId: fornecedor1.id });
-        const produto2 = await Produto.create({ descricao: "Produto 2", precoCusto: 15.0, precoVenda: 40.0, fornecedorId: fornecedor1.id, });
-        const produto3 = await Produto.create({ descricao: "Produto 3", precoCusto: 20.0, precoVenda: 60.0, fornecedorId: fornecedor1.id, });
-        const produto4 = await Produto.create({ descricao: "Produto 4", precoCusto: 25.0, precoVenda: 80.0, fornecedorId: fornecedor1.id, });
+        // const produto1 = await Produto.create({ descricao: "Produto 1", precoCusto: 10, precoVenda: 20, fornecedorId: fornecedor1.id });
+        // const produto2 = await Produto.create({ descricao: "Produto 2", precoCusto: 15.0, precoVenda: 40.0, fornecedorId: fornecedor1.id, });
+        // const produto3 = await Produto.create({ descricao: "Produto 3", precoCusto: 20.0, precoVenda: 60.0, fornecedorId: fornecedor1.id, });
+        // const produto4 = await Produto.create({ descricao: "Produto 4", precoCusto: 25.0, precoVenda: 80.0, fornecedorId: fornecedor1.id, });
         
 
-        const promotor_fornecedor1 = await PromotorFornecedor.create({ promotorId: 1, fornecedorId: 1});
-        const promotor_fornecedor2 = await PromotorFornecedor.create({ promotorId: 2, fornecedorId: 1});
-        const promotor_fornecedor3 = await PromotorFornecedor.create({ promotorId: 1, fornecedorId: 3});
-        const promotor_fornecedor4 = await PromotorFornecedor.create({ promotorId: 3, fornecedorId: 3});
+        // const promotor_fornecedor1 = await PromotorFornecedor.create({ promotorId: 1, fornecedorId: 1});
+        // const promotor_fornecedor2 = await PromotorFornecedor.create({ promotorId: 2, fornecedorId: 1});
+        // const promotor_fornecedor3 = await PromotorFornecedor.create({ promotorId: 1, fornecedorId: 3});
+        // const promotor_fornecedor4 = await PromotorFornecedor.create({ promotorId: 3, fornecedorId: 3});
         
 
-        const entrada1 = await Entrada.create({
-            nome: "Entrada  1",
-            cracha: "CR111",
-            cpf: "111.111.111-11",
-            horario: "08:00",
-            data: "2023-04-13",
-            usuarioId: usuario1.id, // ID do usuário criado anteriormente
-            promotorFornecedorId: 1 // ID da relação Promotor_Fornecedor criada anteriormente
-            //promotorId: 1,
-            //fornecedorId: 1,
-          });
+        // const entrada1 = await Entrada.create({
+        //     nome: "Entrada  1",
+        //     cracha: "CR111",
+        //     cpf: "111.111.111-11",
+        //     horario: "08:00",
+        //     data: "2023-04-13",
+        //     usuarioId: usuario1.id, // ID do usuário criado anteriormente
+        //     promotorFornecedorId: 1 // ID da relação Promotor_Fornecedor criada anteriormente
+        //     //promotorId: 1,
+        //     //fornecedorId: 1,
+        //   });
         
-        const entrada2 = await Entrada.create({
-            nome: "Entrada  2",
-            cracha: "CR112",
-            cpf: "111.111.111-12",
-            horario: "09:00",
-            data: "2023-04-13",
-            usuarioId: usuario2.id, // ID do usuário criado anteriormente
-            promotorFornecedorId: 2 // ID da relação Promotor_Fornecedor criada anteriormente
-            //promotorId: 2,
-            //fornecedorId: 1,
-        });
+        // const entrada2 = await Entrada.create({
+        //     nome: "Entrada  2",
+        //     cracha: "CR112",
+        //     cpf: "111.111.111-12",
+        //     horario: "09:00",
+        //     data: "2023-04-13",
+        //     usuarioId: usuario2.id, // ID do usuário criado anteriormente
+        //     promotorFornecedorId: 2 // ID da relação Promotor_Fornecedor criada anteriormente
+        //     //promotorId: 2,
+        //     //fornecedorId: 1,
+        // });
 
-        const entrada3 = await Entrada.create({
-            nome: "Entrada  3",
-            cracha: "CR113",
-            cpf: "111.111.111-13",
-            horario: "10:00",
-            data: "2023-04-13",
-            usuarioId: usuario3.id, // ID do usuário criado anteriormente
-            promotorFornecedorId: 3 // ID da relação Promotor_Fornecedor criada anteriormente
-            //promotorId: 1,
-            //fornecedorId: 3,
-        });
+        // const entrada3 = await Entrada.create({
+        //     nome: "Entrada  3",
+        //     cracha: "CR113",
+        //     cpf: "111.111.111-13",
+        //     horario: "10:00",
+        //     data: "2023-04-13",
+        //     usuarioId: usuario3.id, // ID do usuário criado anteriormente
+        //     promotorFornecedorId: 3 // ID da relação Promotor_Fornecedor criada anteriormente
+        //     //promotorId: 1,
+        //     //fornecedorId: 3,
+        // });
 
-        const entrada4 = await Entrada.create({
-            nome: "Entrada  4",
-            cracha: "CR114",
-            cpf: "111.111.111-14",
-            horario: "11:00",
-            data: "2023-04-13",
-            usuarioId: usuario4.id, // ID do usuário criado anteriormente
-            promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
-            //promotorId: 3,
-            //fornecedorId: 3,
-        });
+        // const entrada4 = await Entrada.create({
+        //     nome: "Entrada  4",
+        //     cracha: "CR114",
+        //     cpf: "111.111.111-14",
+        //     horario: "11:00",
+        //     data: "2023-04-13",
+        //     usuarioId: usuario4.id, // ID do usuário criado anteriormente
+        //     promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
+        //     //promotorId: 3,
+        //     //fornecedorId: 3,
+        // });
 
-        const entrada6 = await Entrada.create({
-            nome: "Entrada 6",
-            cracha: "CR116",
-            cpf: "111.111.111-16",
-            horario: "11:00",
-            data: "2023-04-13",
-            usuarioId: usuario4.id, // ID do usuário criado anteriormente
-            promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
-            //promotorId: 3,
-            //fornecedorId: 3,
-        });
+        // const entrada6 = await Entrada.create({
+        //     nome: "Entrada 6",
+        //     cracha: "CR116",
+        //     cpf: "111.111.111-16",
+        //     horario: "11:00",
+        //     data: "2023-04-13",
+        //     usuarioId: usuario4.id, // ID do usuário criado anteriormente
+        //     promotorFornecedorId: 4 // ID da relação Promotor_Fornecedor criada anteriormente
+        //     //promotorId: 3,
+        //     //fornecedorId: 3,
+        // });
 
        
 
-        const avaliacao1 = await Avaliacao.create({
-            usuarioId: 1,
-            cracha: "CR111",
-            nota: 5,
-            servicoConcluido: false,
-            observacao: "Bom trabalho.",
-            entradaId: entrada1.id, // ID da entrada criada anteriormente
-            destaqueId: 1,
-        });
+        // const avaliacao1 = await Avaliacao.create({
+        //     usuarioId: 1,
+        //     cracha: "CR111",
+        //     nota: 5,
+        //     servicoConcluido: false,
+        //     observacao: "Bom trabalho.",
+        //     entradaId: entrada1.id, // ID da entrada criada anteriormente
+        //     destaqueId: 1,
+        // });
 
-        const avaliacao2 = await Avaliacao.create({
-            usuarioId: 1,
-            cracha: "CR112",
-            nota: 6,
-            servicoConcluido: false,
-            observacao: "Razoável",
-            entradaId: entrada2.id, // ID da entrada criada anteriormente
-            destaqueId: 2,
-        });
+        // const avaliacao2 = await Avaliacao.create({
+        //     usuarioId: 1,
+        //     cracha: "CR112",
+        //     nota: 6,
+        //     servicoConcluido: false,
+        //     observacao: "Razoável",
+        //     entradaId: entrada2.id, // ID da entrada criada anteriormente
+        //     destaqueId: 2,
+        // });
 
-        const avaliacao3 = await Avaliacao.create({
-            usuarioId: 2,
-            cracha: "CR113",
-            nota: 1,
-            servicoConcluido: false,
-            observacao: "Ruim",
-            entradaId: entrada3.id, // ID da entrada criada anteriormente
-            destaqueId: 3,
-        });
+        // const avaliacao3 = await Avaliacao.create({
+        //     usuarioId: 2,
+        //     cracha: "CR113",
+        //     nota: 1,
+        //     servicoConcluido: false,
+        //     observacao: "Ruim",
+        //     entradaId: entrada3.id, // ID da entrada criada anteriormente
+        //     destaqueId: 3,
+        // });
 
-        const avaliacao4 = await Avaliacao.create({
-            usuarioId: 2,
-            cracha: "CR114",
-            nota: 1,
-            servicoConcluido: true,
-            observacao: "Ruim",
-            entradaId: entrada4.id, // ID da entrada criada anteriormente
-            destaqueId: 4,
-        });
+        // const avaliacao4 = await Avaliacao.create({
+        //     usuarioId: 2,
+        //     cracha: "CR114",
+        //     nota: 1,
+        //     servicoConcluido: true,
+        //     observacao: "Ruim",
+        //     entradaId: entrada4.id, // ID da entrada criada anteriormente
+        //     destaqueId: 4,
+        // });
 
-        const avaliacao5 = await Avaliacao.create({
-            usuarioId: 1,
-            cracha: "CR112",
-            nota: 6,
-            servicoConcluido: false,
-            observacao: "Razoável",
-            entradaId: entrada2.id, // ID da entrada criada anteriormente
-            destaqueId: 2,
-        });
+        // const avaliacao5 = await Avaliacao.create({
+        //     usuarioId: 1,
+        //     cracha: "CR112",
+        //     nota: 6,
+        //     servicoConcluido: false,
+        //     observacao: "Razoável",
+        //     entradaId: entrada2.id, // ID da entrada criada anteriormente
+        //     destaqueId: 2,
+        // });
 
         
 
-        const saida1 = await Saida.create({
-            cracha: "CR111",
-            horario: "09:00",
-            data: "2023-04-13",
-            portaoId: portao1.id, //  ID do porto criado anteriormente
-            usuarioId: usuario1.id, // ID do usuário criado anteriormente
-            entradaId: entrada1.id // ID da entrada criada anteriormente
-        });
+        // const saida1 = await Saida.create({
+        //     cracha: "CR111",
+        //     horario: "09:00",
+        //     data: "2023-04-13",
+        //     portaoId: portao1.id, //  ID do porto criado anteriormente
+        //     usuarioId: usuario1.id, // ID do usuário criado anteriormente
+        //     entradaId: entrada1.id // ID da entrada criada anteriormente
+        // });
         
-        const saida2 = await Saida.create({
-            cracha: "CR112",
-            horario: "10:00",
-            data: "2023-04-16",
-            portaoId: portao2.id, //  ID do porto criado anteriormente
-            usuarioId: usuario2.id, // ID do usuário criado anteriormente
-            entradaId: entrada2.id // ID da entrada criada anteriormente
-        });
+        // const saida2 = await Saida.create({
+        //     cracha: "CR112",
+        //     horario: "10:00",
+        //     data: "2023-04-16",
+        //     portaoId: portao2.id, //  ID do porto criado anteriormente
+        //     usuarioId: usuario2.id, // ID do usuário criado anteriormente
+        //     entradaId: entrada2.id // ID da entrada criada anteriormente
+        // });
 
-        const saida3 = await Saida.create({
-            cracha: "CR112",
-            horario: "10:00",
-            data: "2023-04-16",
-            portaoId: portao2.id, //  ID do porto criado anteriormente
-            usuarioId: usuario3.id, // ID do usuário criado anteriormente
-            entradaId: entrada2.id // ID da entrada criada anteriormente
-        });
+        // const saida3 = await Saida.create({
+        //     cracha: "CR112",
+        //     horario: "10:00",
+        //     data: "2023-04-16",
+        //     portaoId: portao2.id, //  ID do porto criado anteriormente
+        //     usuarioId: usuario3.id, // ID do usuário criado anteriormente
+        //     entradaId: entrada2.id // ID da entrada criada anteriormente
+        // });
 
-        const saida4 = await Saida.create({
-            cracha: "CR112",
-            horario: "10:00",
-            data: "2023-04-16",
-            portaoId: portao4.id, //  ID do porto criado anteriormente
-            usuarioId: usuario4.id, // ID do usuário criado anteriormente
-            entradaId: entrada2.id // ID da entrada criada anteriormente
-        });
+        // const saida4 = await Saida.create({
+        //     cracha: "CR112",
+        //     horario: "10:00",
+        //     data: "2023-04-16",
+        //     portaoId: portao4.id, //  ID do porto criado anteriormente
+        //     usuarioId: usuario4.id, // ID do usuário criado anteriormente
+        //     entradaId: entrada2.id // ID da entrada criada anteriormente
+        // });
 
 
     })();
