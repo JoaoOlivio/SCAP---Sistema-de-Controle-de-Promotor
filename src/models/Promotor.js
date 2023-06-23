@@ -14,14 +14,6 @@ class Promotor extends Model {
                   len: { args: [3, 100], msg: "Nome deve ter entre 3 e 50 caracteres" }
                 }
               },
-              razaoSocial: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                  notEmpty: { msg: "Razão social é obrigatória" },
-                  len: { args: [3, 100], msg: "Razão social deve ter entre 3 e 50 caracteres" }
-                }
-              },
               cpf: {
                 type: DataTypes.STRING,
                 allowNull: false,
