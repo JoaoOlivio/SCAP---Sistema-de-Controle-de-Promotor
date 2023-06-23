@@ -20,19 +20,19 @@ class ProdutoService {
   }
 
   static async create(req) {
-    const { descricao, precoCusto, precoVenda, fornecedor } = req.body;
-    if (fornecedor == null) throw 'O fornecedor de Produto deve ser preenchido!';
-    const obj = await Produto.create({ descricao, precoCusto, precoVenda, fornecedor });
+    const { descricao, precoCusto, precoVenda, fornecedorId } = req.body;
+    if (fornecedorId == null) throw 'O fornecedor de Produto deve ser preenchido!';
+    const obj = await Produto.create({ descricao, precoCusto, precoVenda, fornecedorId });
     return await Produto.findByPk(obj.id, { include: { all: true, nested: true } });
   }
 
   static async update(req) {
     const { id } = req.params;
-    const { descricao, precoCusto, precoVenda, fornecedor } = req.body;
-    if (fornecedor == null) throw 'O fornecedor de Produto deve ser preenchido!';
+    const { descricao, precoCusto, precoVenda, fornecedorId } = req.body;
+    if (fornecedorId == null) throw 'O fornecedor de Produto deve ser preenchido!';
     const obj = await Produto.findByPk(id, { include: { all: true, nested: true } });
     if (obj == null) throw 'Produto não encontrado!';
-    Object.assign(obj, { descricao, precoCusto, precoVenda,fornecedor });
+    Object.assign(obj, { descricao, precoCusto, precoVenda,fornecedorId });
     await obj.save();
     return await Produto.findByPk(obj.id, { include: { all: true, nested: true } });
   }
