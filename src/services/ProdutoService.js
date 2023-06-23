@@ -22,7 +22,7 @@ class ProdutoService {
   static async create(req) {
     const { descricao, precoCusto, precoVenda, fornecedor } = req.body;
     if (fornecedor == null) throw 'O fornecedor de Produto deve ser preenchido!';
-    const obj = await Produto.create({ descricao, precoCusto, precoVenda, fornecedorId: fornecedor.id });
+    const obj = await Produto.create({ descricao, precoCusto, precoVenda, fornecedorId: fornecedor });
     return await Produto.findByPk(obj.id, { include: { all: true, nested: true } });
   }
 
